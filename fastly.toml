@@ -2,10 +2,17 @@
 # https://developer.fastly.com/reference/fastly-toml/
 
 authors = ["<oss@fastly.com>"]
-description = "An empty application template for the Fastly Compute@Edge environment which simply returns a 200 OK response."
+description = ""
 language = "javascript"
 manifest_version = 3
-name = "Empty starter for JavaScript"
+name = "Verify if a web crawler accessing your server really is Googlebot"
 
 [scripts]
 build = "npm run build"
+
+[local_server.backends.origin_0]
+      url = "https://dns.google.com"
+
+[setup.backends.origin_0]
+address = "dns.google.com"
+port = 443
